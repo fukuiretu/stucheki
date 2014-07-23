@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rails generate controller home
+rails generate controller cheki_list
