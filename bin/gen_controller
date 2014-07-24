@@ -2,3 +2,4 @@
 
 rails generate controller home
 rails generate controller cheki_list
+rails generate controller event_list
