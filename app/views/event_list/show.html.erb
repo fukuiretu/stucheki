@@ -1,26 +1,27 @@
 <div class="page-header">
-  <h3>検索結果 <small>1件</small></h3>
+  <h3>検索結果 <small>9999999件</small></h3>
 </div>
 
 <div class="container">
-  <p件数1/1</p>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>
-        ほにゃらほにゃらほげほげ#1
-      </h4>
+  <% @events.each do |event| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= event.title %>
+        </h4>
+      </div>
+      <div class="panel-body">
+        <p>[タグ]
+          <% event.tag.split(",").each do |t| %>
+            <span class="label label-default"><%= t %></span>
+          <% end %>
+        </p>
+        <p>[日時] 2011-01-01 11:00 - 12:00</p>
+        <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
+        <p>[リンク] <a href="http://example.com">http://example.com</a></p>
+      </div>
     </div>
-    <div class="panel-body">
-      <p>[タグ]
-        <span class="label label-default">rails</span>
-        <span class="label label-default">ruby</span>
-        <span class="label label-default">aws</span>
-      </p>
-      <p>[日時] 2011-01-01 11:00 - 12:00</p>
-      <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
-      <p>[リンク] <a href="http://example.com">http://example.com</a></p>
-    </div>
-  </div>
+  <% end %>
 
   <div class="text-center">
     <ul class="pagination">
