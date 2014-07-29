@@ -10,6 +10,6 @@ rails generate model user provider:string uid:string screen_name:string screen_u
 # cheki_events
 rails generate model cheki_event user_id:integer event_id:integer cheki_status:integer
 # events
-rails generate model event origin_type:integer title:string description:string tag:string from_date:date to_date:date
+rails generate model event origin_type:integer title:string description:string tag:string from_date:datetime to_date:datetime place:string link:string
 # informations
 rails generate model information message:string disp_flag:integer

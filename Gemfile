@@ -45,3 +45,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'settingslogic'
+
+gem 'kaminari'

@@ -16,23 +16,13 @@
             <span class="label label-default"><%= t %></span>
           <% end %>
         </p>
-        <p>[日時] 2011-01-01 11:00 - 12:00</p>
-        <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
-        <p>[リンク] <a href="http://example.com">http://example.com</a></p>
+        <p>[概要]<%= event.description %></p>
+        <p>[日時] <%= event.from_date %> - <%= event.to_date %></p>
+        <p>[場所] <%= event.place %></p>
+        <p>[リンク] <a href="<%= event.link %>"><%= event.link %></a></p>
       </div>
     </div>
   <% end %>
 
-  <div class="text-center">
-    <ul class="pagination">
-      <li><a href="#">&laquo;</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">&raquo;</a></li>
-    </ul>
-  </div>
-
+  <%= paginate @events%>  
 </div>

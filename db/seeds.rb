@@ -6,21 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Event.create([
-  {
+11.times do |time|
+  Event.create(
     origin_type: 1,
-    title: 'hoge_title_1',
-    description: 'hoge_description_1',
+    title: "hoge_title #{time}",
+    description: "hoge_description #{time}",
     tag: 'ruby,rails,aws',
     from_date: Time.now,
-    to_date: Time.now
-  },
-  {
-    origin_type: 2,
-    title: 'hoge_title_2',
-    description: 'hoge_description_2',
-    tag: 'ruby,rails,aws',
-    from_date: Time.now,
-    to_date: Time.now
-  }
-])
+    to_date: Time.now,
+    place: '神奈川県横浜市戸塚区',
+    link: 'http://example.com'
+  )
+end
