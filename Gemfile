@@ -38,12 +38,18 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+
+##### custom division #####
+## bootstrap関連
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.1'
 
+# OAuth関連
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'settingslogic'
 
+# ページャー関連
 gem 'kaminari'

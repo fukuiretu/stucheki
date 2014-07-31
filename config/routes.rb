@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   match '/home',  to: 'home#index', via: :get
+  match '/auth/:provider/callback', to: 'sessions#callback', :via => [:get, :post]
   match '/cheki_list/:user_id',  to: 'cheki_list#show', via: :get
   match '/event_list',  to: 'event_list#show', via: :get
+  get '/logout' => 'sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
