@@ -30,8 +30,8 @@
           <ul class="nav navbar-nav">
             <li><a href="/home"><i class="fa fa-home fa-lg fa-fw"></i>ホーム</a></li>
             <li><a href="/cheki_list/1"><i class="fa fa-meh-o fa-lg fa-fw"></i>ちぇきリスト</a></li>
-            <% if signin? %>
-              <li><a href="/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i></a></li>
+            <% if logged_in? %>
+              <li><a href="/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i>ログアウト</a></li>
             <% else %>
               <li><a href="/auth/twitter"><i class="fa fa-twitter fa-lg fa-fw"></i>Sign in with Twitter</a></li>
             <% end %>

@@ -1,6 +1,10 @@
-class HomeController < BaseController
+class HomeController < ApplicationController
   def index
     # render :action => "before_login"
-    render :action => "index"
+    if logged_in?
+      render :action => "index"
+    else
+      render :action => "before_login"
+    end
   end
 end
