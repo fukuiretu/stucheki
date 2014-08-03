@@ -53,3 +53,12 @@ gem 'settingslogic'
 
 # ページャー関連
 gem 'kaminari'
+
+gem 'active_decorator'
+
+group :development, :staging do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'annotate'
+end
