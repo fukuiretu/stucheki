@@ -3,10 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.alert').fadeIn(1000).delay(2000).fadeOut(2000)
-
   $('.selectpicker').selectpicker({
     style: 'btn-info',
     size: 4
   })
-@
+
+# $('.alert').fadeIn(1000).delay(2000).fadeOut(2000)
