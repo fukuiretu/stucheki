@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#callback', :via => [:get, :post]
   match '/cheki_list/:user_id',  to: 'cheki_list#show', via: :get
   match '/event_list',  to: 'event_list#show', via: :get
-  get '/logout' => 'sessions#destroy', :as => :logout
+  match '/logout', to: 'sessions#destroy', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
