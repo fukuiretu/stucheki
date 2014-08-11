@@ -1,7 +1,11 @@
 <% provide(:title, 'ChekiList') %>
 
 <div class="alert alert-success spacer15">
-  ステータスの更新が完了しました
+  更新が完了しました
+</div>
+
+<div class="alert alert-danger spacer15">
+  更新に失敗しました。<br>時間を少しおいてからリトライしてください。
 </div>
 
 <div class="container">
@@ -13,23 +17,11 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         ほにゃらほにゃらほげほげ#1
-        <!-- <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            ストック
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">ストック</a></li>
-            <li class="active"><a href="#">参加</a></li>
-            <li><a href="#">キャンセル</a></li>
-          </ul>
-        </div> -->
-
-          <select class="selectpicker" data-style="btn-info">
-            <option>ストック</option>
-            <option selected>参加</option>
-            <option>キャンセル</option>
-          </select>
+        <select id="chekilist_1" class="selectpicker" data-style="btn-info">
+          <option value="1">ストック</option>
+          <option value="2">参加</option>
+          <option value="3">キャンセル</option>
+        </select>
       </h4>
     </div>
     <div class="panel-body">
