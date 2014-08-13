@@ -15,14 +15,20 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="panel-title">
+      <!-- <h4 class="panel-title"> -->
         ほにゃらほにゃらほげほげ#1
-        <select id="chekilist_1" class="selectpicker" data-style="btn-info">
-          <option value="1">ストック</option>
-          <option value="2">参加</option>
-          <option value="3">キャンセル</option>
-        </select>
-      </h4>
+      <!-- </h4> -->
+      <select id="chekilist_1" class="selectpicker" data-style="btn-info">
+        <option value="1">ストック</option>
+        <option value="2">参加</option>
+        <option value="3">キャンセル</option>
+      </select>
+      <!-- <div class="text-center"> -->
+      <div class="pull-right">
+        <a class="btn" name="del_link" id="1" href="#">
+          <i class="fa fa-times-circle fa-lg fa-fw"></i>
+        </a>
+      </div>
     </div>
     <div class="panel-body">
       <p>[タグ]
@@ -33,6 +39,23 @@
       <p>[日時] 2011-01-01 11:00 - 2011-01-01 12:00</p>
       <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
       <p>[リンク] <a href="http://example.com">http://example.com</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">確認</h4>
+      </div>
+      <div class="modal-body">削除してよろしいですか？</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        <a class="btn btn-primary" id="del_exec" href="#">削除する</a>
+      </div>
     </div>
   </div>
 </div>

@@ -17,6 +17,23 @@ $ ->
               status : $(":selected").attr("value")
             }
       success: (data, textStatus, jqXHR) ->
-        $('.alert-success').fadeIn(500).delay(2000).fadeOut(2000)
+        $('.alert-success').fadeIn(500).delay(1000).fadeOut(1000)
       error: (jqXHR, textStatus, errorThrown) ->
-        $('.alert-danger').fadeIn(500).delay(2000).fadeOut(2000)
+        $('.alert-danger').fadeIn(500).delay(1000).fadeOut(1000)
+
+  $("a[name='del_link']").click ->
+    self = $(this)
+    alert('aaaaa:' + self.attr('id'))
+
+    # TODO modalの中を書き換える
+    $("#del_exec").attr("href", "/cheki_list/delete/" + self.attr('id'))
+    $('#myModal').modal()
+
+    #
+    # $('#myModal').on('show.bs.modal', (e) ->
+    #   alert('hogehoge:' + self.attr('id'))
+    # )
+
+    # alert()
+    # $('#myModal').modal({show:true})
+    # location.href = $(this).attr("href")
