@@ -1,45 +1,43 @@
 <% provide(:title, 'ChekiList') %>
 
-<div class="alert alert-success spacer15">
+<div class="alert-fade alert-success spacer15">
   更新が完了しました
 </div>
 
-<div class="alert alert-danger spacer15">
+<div class="alert-fade alert-danger spacer15">
   更新に失敗しました。<br>時間を少しおいてからリトライしてください。
 </div>
 
-<div class="container">
-  <div class="page-header">
-    <h3>ちぇきリスト <small>なにかしらチェックした勉強会の一覧</small></h3>
-  </div>
+<div class="page-header">
+  <h3>ちぇきリスト <small>なにかしらチェックした勉強会の一覧</small></h3>
+</div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <!-- <h4 class="panel-title"> -->
-        ほにゃらほにゃらほげほげ#1
-      <!-- </h4> -->
-      <select id="chekilist_1" class="selectpicker" data-style="btn-info">
-        <option value="1">ストック</option>
-        <option value="2">参加</option>
-        <option value="3">キャンセル</option>
-      </select>
-      <!-- <div class="text-center"> -->
-      <div class="pull-right">
-        <a class="btn" name="del_link" id="1" href="#">
-          <i class="fa fa-times-circle fa-lg fa-fw"></i>
-        </a>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <!-- <h4 class="panel-title"> -->
+      ほにゃらほにゃらほげほげ#1
+    <!-- </h4> -->
+    <select id="chekilist_1" class="selectpicker" data-style="btn-info">
+      <option value="1">ストック</option>
+      <option value="2">参加</option>
+      <option value="3">キャンセル</option>
+    </select>
+    <!-- <div class="text-center"> -->
+    <div class="pull-right">
+      <a class="btn" name="del_link" id="1" href="#">
+        <i class="fa fa-times-circle fa-lg fa-fw"></i>
+      </a>
     </div>
-    <div class="panel-body">
-      <p>[タグ]
-        <span class="label label-default">rails</span>
-        <span class="label label-default">ruby</span>
-        <span class="label label-default">aws</span>
-      </p>
-      <p>[日時] 2011-01-01 11:00 - 2011-01-01 12:00</p>
-      <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
-      <p>[リンク] <a href="http://example.com">http://example.com</a></p>
-    </div>
+  </div>
+  <div class="panel-body">
+    <p>[タグ]
+      <span class="label label-default">rails</span>
+      <span class="label label-default">ruby</span>
+      <span class="label label-default">aws</span>
+    </p>
+    <p>[日時] 2011-01-01 11:00 - 2011-01-01 12:00</p>
+    <p>[場所] 神奈川県横浜市戸塚区上倉田3-1-2</p>
+    <p>[リンク] <a href="http://example.com">http://example.com</a></p>
   </div>
 </div>
 

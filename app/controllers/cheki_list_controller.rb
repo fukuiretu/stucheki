@@ -10,7 +10,12 @@ class ChekiListController < ApplicationController
 
   def delete
     cheki_event = ChekiEvent.find_by(id: params[:id].to_i, user_id: @current_user.id)
-    cheki_event.destroy
-    render :action => "show"
+    unless cheki_event.nil?
+      cheki_event.destroy
+    end
+
+    flash[:success] = "削除が完了しました"
+    redirect_to "/cheki_list"
+    # redirect_to "/cheki_list", :success => "表示したいメッセージ"
   end
 end
