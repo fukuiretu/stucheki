@@ -19,10 +19,10 @@
   )
 end
 
-3.times do |time|
+11.times do |time|
   ChekiEvent.create(
     user_id: 1,
-    event_id: time,
+    event_id: time + 1,
     cheki_status: 1
   )
 end
