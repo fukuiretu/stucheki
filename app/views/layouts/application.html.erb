@@ -13,33 +13,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Study Cheki <small>すたちぇき</small></a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li><a href="/"><i class="fa fa-home fa-lg fa-fw"></i>ホーム</a></li>
-            <li><a href="/cheki_list"><i class="fa fa-meh-o fa-lg fa-fw"></i>ちぇきリスト</a></li>
-            <% if logged_in? %>
-              <li><a href="#"><img src="<%= @current_user.screen_url %>" class="img-responsive"></a></li>
-              <li><a href="/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i>ログアウト</a></li>
-            <% else %>
-              <li><a href="/auth/twitter"><i class="fa fa-twitter fa-lg fa-fw"></i>Sign in with Twitter</a></li>
-            <% end %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    <div class="spacer50"></div>
+    <%= render "layouts/nav" %>
 
     <div class="container">
       <% flash.each do |status, msg| %>
@@ -49,12 +23,7 @@
       <%= yield %>
     </div>
 
-    <footer id="footer" class="footer">
-      <div class="container text-center footer-wrapper">
-        <p>Created by<a href="http://twitter.com/_r_82_"> @_r_82_</a></p>
-        <p>Code licensed under MIT License</p>
-      </div>
-    </footer>
+    <%= render "layouts/footer" %>
 
     <%= debug(params) if Rails.env.development? %>
   </body>
