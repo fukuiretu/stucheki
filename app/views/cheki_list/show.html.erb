@@ -16,7 +16,8 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>
-        <%= cheki_event.event.title %>
+        <% event = @events.select {|e| e.id == cheki_event.event_id }.first %>
+        <%= event.title %>
         <%= cheki_event.select_tag_cheki_status %>
         <div class="pull-right">
           <a class="btn" name="del_link" id="<%= cheki_event.id %>" href="#">
@@ -26,10 +27,10 @@
       </h4>
     </div>
     <div class="panel-body">
-      <p>[タグ] <%= cheki_event.event.label_tags %></p>
-      <p>[日時] <%= cheki_event.event.open_date %></p>
-      <p>[場所] <%= cheki_event.event.place %></p>
-      <p>[リンク] <%= cheki_event.event.link_to_website %></p>
+      <p>[タグ] <%= event.label_tags %></p>
+      <p>[日時] <%= event.open_date %></p>
+      <p>[場所] <%= event.place %></p>
+      <p>[リンク] <%= event.link_to_website %></p>
     </div>
   </div>
 <% end %>
