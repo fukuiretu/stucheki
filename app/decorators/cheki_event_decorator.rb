@@ -11,4 +11,8 @@ module ChekiEventDecorator
       }
     )
   end
+
+  def ref_event(events)
+    events.select { |e| e.id == event_id }.first
+  end
 end

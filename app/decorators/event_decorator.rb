@@ -11,6 +11,5 @@ module EventDecorator
     tag.split(",").map{ |t|
       content_tag(:span, t, :class => 'label label-default')
     }.join(" ").html_safe
-    # content_tag(:span, tag, :class => 'label label-default')
   end
 end

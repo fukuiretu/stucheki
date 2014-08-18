@@ -16,7 +16,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>
-        <% event = @events.select {|e| e.id == cheki_event.event_id }.first %>
+        <% event = cheki_event.ref_event @events %>
         <%= event.title %>
         <%= cheki_event.select_tag_cheki_status %>
         <div class="pull-right">
@@ -36,7 +36,7 @@
 <% end %>
 
 <div class="text-center">
-  <%= paginate @cheki_events%>
+  <%= paginate @cheki_events %>
 </div>
 
 <!-- Modal -->
