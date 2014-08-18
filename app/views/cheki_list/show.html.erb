@@ -13,10 +13,10 @@
 </div>
 
 <% @cheki_events.each do |cheki_event| %>
+  <% event = cheki_event.ref_event @events %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>
-        <% event = cheki_event.ref_event @events %>
         <%= event.title %>
         <%= cheki_event.select_tag_cheki_status %>
         <div class="pull-right">

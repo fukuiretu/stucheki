@@ -9,7 +9,7 @@ class ChekiListController < ApplicationController
     }
   end
 
-  def update_status
+  def update
     cheki_event = ChekiEvent.find_by(id: params[:id].to_i, user_id: @current_user.id)
     cheki_event.cheki_status = params[:status].to_i
     cheki_event.save

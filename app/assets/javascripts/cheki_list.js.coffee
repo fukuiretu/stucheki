@@ -9,8 +9,7 @@ $ ->
 
   $(".selectpicker").change ->
     chekilist_id = $(this).attr("id").split "_"
-    alert(chekilist_id[1])
-    $.ajax "/cheki_list/update",
+    $.ajax "/cheki_list/update/",
       type: "POST"
       dataType: "html"
       data: {
