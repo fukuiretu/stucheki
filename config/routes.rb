@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  match '/home',  to: 'home#index', via: :get
+  # match '/home',  to: 'home#index', via: :get
   match '/auth/:provider/callback', to: 'sessions#callback', :via => [:get, :post]
   match '/cheki_list',  to: 'cheki_list#show', via: :get
   match '/cheki_list/update/',  to: 'cheki_list#update', via: :post
   match '/cheki_list/delete/:id',  to: 'cheki_list#delete', via: :get
+  # resources :cheki_list, :except => [:index, :new, :create, :edit]
   match '/event_list',  to: 'event_list#show', via: :get
   match '/logout', to: 'sessions#destroy', via: :get
 
