@@ -6,14 +6,15 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def check_login
-    redirect_to root_path unless logged_in?
+    return redirect_to root_path unless logged_in?
 
     current_user
   end
 
   def current_user
     if @current_user.nil?
-      @current_user = Rails.cache.fetch(user_id, expires_in: 1.hour) do
+      user_id = session[:user_id]
+      @current_user = Rails.cache.fetch(:current_user, expires_in: 1.hour) do
         User.find(user_id)
       end
     end
