@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match '/cheki_list/delete/:id',  to: 'cheki_list#delete', via: :get
   # resources :cheki_list, :except => [:index, :new, :create, :edit]
   match '/event_list',  to: 'event_list#show', via: :get
+  match '/event_list/stock/:id',  to: 'event_list#stock', via: :get
   match '/logout', to: 'sessions#destroy', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -3,7 +3,7 @@ class ChekiListController < ApplicationController
     temp_cheki_events = ChekiEvent.where("user_id = ?", @current_user.id)
 
     @cheki_events_count = temp_cheki_events.count
-    @cheki_events = temp_cheki_events.page(params[:page]).per(5)
+    @cheki_events = temp_cheki_events.order("created_at DESC").page(params[:page]).per(5)
     @events = @cheki_events.includes(:event).map { |cheki_event| cheki_event.event }
   end
 

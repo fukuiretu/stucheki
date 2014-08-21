@@ -1,30 +1,48 @@
+<% provide(:title, 'SearchResult') %>
+
 <div class="page-header">
   <h3>検索結果 <small><%= @event_count %>件</small></h3>
 </div>
 
-<div class="container">
-  <% @events.each do |event| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          <%= event.title %>
-        </h4>
+<% @events.each do |event| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        <%= event.title %>
+        <!-- <div class="pull-right"> -->
+          <a class="btn" id="<%= event.id %>" name="stock_link" href="#">
+            <i class="fa fa-plus-circle fa-lg fa-fw"></i>
+          </a>
+        <!-- </div> -->
+      </h4>
+    </div>
+    <div class="panel-body">
+      <p>[タグ] <%= event.label_tags %></p>
+      <p>[日時] <%= event.open_date %></p>
+      <p>[概要] <%= event.description %></p>
+      <p>[場所] <%= event.place %></p>
+      <p>[リンク] <%= event.link_to_website %></p>
+    </div>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @events%>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">確認</h4>
       </div>
-      <div class="panel-body">
-        <p>[タグ]
-          <% event.tag.split(",").each do |t| %>
-            <span class="label label-default"><%= t %></span>
-          <% end %>
-        </p>
-        <p>[概要]<%= event.description %></p>
-        <p>[日時] <%= event.from_date %> - <%= event.to_date %></p>
-        <p>[場所] <%= event.place %></p>
-        <p>[リンク] <a href="<%= event.link %>"><%= event.link %></a></p>
+      <div class="modal-body">ストックしますか？</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        <a class="btn btn-primary" id="stock_exec" href="#">ストックする</a>
       </div>
     </div>
-  <% end %>
-
-  <div class="text-center">
-    <%= paginate @events%>
   </div>
 </div>
