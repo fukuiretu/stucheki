@@ -12,28 +12,32 @@
   <h3>ちぇきリスト <small>なにかしらチェックした勉強会の一覧 (<%= @cheki_events_count %>件)</small></h3>
 </div>
 
+<section id="cheki_events">
 <% @cheki_events.each do |cheki_event| %>
   <% event = cheki_event.ref_event @events %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>
-        <%= event.title %>
-        <%= cheki_event.select_tag_cheki_status %>
-        <div class="pull-right">
-          <a class="btn" name="del_link" id="<%= cheki_event.id %>" href="#">
-            <i class="fa fa-times-circle fa-lg fa-fw"></i>
-          </a>
-        </div>
-      </h4>
+  <article id="cheki_event_<%= cheki_event.id %>">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= event.title %>
+          <%= cheki_event.select_tag_cheki_status %>
+          <div class="pull-right">
+            <a class="btn" name="del_link" href="#">
+              <i class="fa fa-times-circle fa-lg fa-fw"></i>
+            </a>
+          </div>
+        </h4>
+      </div>
+      <div class="panel-body">
+        <p>[タグ] <%= event.label_tags %></p>
+        <p>[日時] <%= event.open_date %></p>
+        <p>[場所] <%= event.place %></p>
+        <p>[リンク] <%= event.link_to_website %></p>
+      </div>
     </div>
-    <div class="panel-body">
-      <p>[タグ] <%= event.label_tags %></p>
-      <p>[日時] <%= event.open_date %></p>
-      <p>[場所] <%= event.place %></p>
-      <p>[リンク] <%= event.link_to_website %></p>
-    </div>
-  </div>
+  </article>
 <% end %>
+</section>
 
 <div class="text-center">
   <%= paginate @cheki_events %>

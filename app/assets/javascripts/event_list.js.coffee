@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   $("a[name='stock_link']").click ->
-    alert($(this).attr("id"))
-    $("#stock_exec").attr("href", "/event_list/stock/" + $(this).attr("id"))
+    event_id = $(this).parents('article').attr('id').split("_").pop()
+    $("#stock_exec").attr("href", "/event_list/stock/" + event_id)
     $('#modal').modal()

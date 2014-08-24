@@ -4,27 +4,29 @@
   <h3>検索結果 <small><%= @event_count %>件</small></h3>
 </div>
 
+<section id="events">
 <% @events.each do |event| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>
-        <%= event.title %>
-        <!-- <div class="pull-right"> -->
-          <a class="btn" id="<%= event.id %>" name="stock_link" href="#">
-            <i class="fa fa-plus-circle fa-lg fa-fw"></i>
-          </a>
-        <!-- </div> -->
-      </h4>
+  <article id="event_<%= event.id %>">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          <%= event.title %>
+            <a class="btn" name="stock_link" href="#">
+              <i class="fa fa-plus-circle fa-lg fa-fw"></i>
+            </a>
+        </h4>
+      </div>
+      <div class="panel-body">
+        <p>[タグ] <%= event.label_tags %></p>
+        <p>[日時] <%= event.open_date %></p>
+        <p>[概要] <%= event.description %></p>
+        <p>[場所] <%= event.place %></p>
+        <p>[リンク] <%= event.link_to_website %></p>
+      </div>
     </div>
-    <div class="panel-body">
-      <p>[タグ] <%= event.label_tags %></p>
-      <p>[日時] <%= event.open_date %></p>
-      <p>[概要] <%= event.description %></p>
-      <p>[場所] <%= event.place %></p>
-      <p>[リンク] <%= event.link_to_website %></p>
-    </div>
-  </div>
+  </article>
 <% end %>
+</section>
 
 <div class="text-center">
   <%= paginate @events%>

@@ -8,12 +8,12 @@ $ ->
     size: 4
 
   $(".selectpicker").change ->
-    chekilist_id = $(this).attr("id").split "_"
+    chekievent_id = $(this).parents('article').attr('id').split("_").pop()
     $.ajax "/cheki_list/update/",
       type: "POST"
       dataType: "html"
       data: {
-              id : chekilist_id[1],
+              id : chekievent_id,
               status : $(this).val()
             }
       success: (data, textStatus, jqXHR) ->
@@ -22,5 +22,6 @@ $ ->
         $('.alert-danger').fadeIn(500).delay(2000).fadeOut(500)
 
   $("a[name='del_link']").click ->
-    $("#del_exec").attr("href", "/cheki_list/delete/" + $(this).attr("id"))
+    chekievent_id = $(this).parents('article').attr('id').split("_").pop()
+    $("#del_exec").attr("href", "/cheki_list/delete/" + chekievent_id)
     $('#myModal').modal()
