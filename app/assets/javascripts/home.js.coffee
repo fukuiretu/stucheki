@@ -4,3 +4,11 @@
 
 $ ->
   $('.datepicker').datetimepicker()
+
+  $("span.event_tag").click ->
+    if ($(this).hasClass("label-default"))
+      $(this).removeClass("label-default")
+      $(this).addClass("label-danger")
+    else
+      $(this).removeClass("label-danger")
+      $(this).addClass("label-default")
