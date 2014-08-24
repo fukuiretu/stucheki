@@ -1,7 +1,7 @@
 class EventListController < ApplicationController
   def show
     @event_count = Event.count
-    @events = Event.all.order("created_at DESC").page(params[:page]).per(5)
+    @events = Event.merge_cheki_events.order(:created_at => :desc).page(params[:page]).per(5)
   end
 
   def stock

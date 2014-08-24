@@ -11,9 +11,13 @@
       <div class="panel-heading">
         <h4>
           <%= event.title %>
+          <% if event.event_id.nil? %>
             <a class="btn" name="stock_link" href="#">
               <i class="fa fa-plus-circle fa-lg fa-fw"></i>
             </a>
+          <% else %>
+            <%= content_tag(:span, "ちぇきリスト済", :class => "label label-success") %>
+          <% end %>
         </h4>
       </div>
       <div class="panel-body">
