@@ -47,60 +47,26 @@
 </div>
 <hr>
 
-  <!-- <h1><i class="fa fa-tags fa-lg fa-fw"></i>タグで検索</h1>
-  <div class="row">
-    <h4>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-    </h4>
-    <h4>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-      <a href="/event_list"><span class="label label-default">Ruby</span></a>
-    </h4>
-  </div>
-  <hr> -->
-
 <h1><i class="fa fa-search fa-lg fa-fw"></i>イベントを検索</h1>
-
 <div class="form-group">
   <form class="form-inline" role="form" action="event_list">
     <label>タグ</label><br/>
     <span class="event_tag label label-default">Ruby</span>
     <span class="event_tag label label-default">Java</span>
     <span class="event_tag label label-default">Rails</span>
+    <span class="event_tag label label-default">PHP</span>
     <span class="event_tag label label-default">AWS</span>
-    <span class="event_tag label label-default">NoSQL</span>
+    <span class="event_tag label label-default">Redis</span>
+    <span class="event_tag label label-default">Docker</span>
+    <span class="event_tag label label-default">Chef</span>
+    <div id="event_tag_field" style="display: none;"></div>
     <br>
     <div class="spacer10"></div>
 
     <label>日時</label><br/>
     <div class="input-group date datepicker" data-date-format="YYYY-MM-DD">
       <label class="sr-only" for="from_date">From</label>
-      <input type="text" class="form-control" id="from_date" placeholder="From" />
+      <input type="text" class="form-control" id="from_date" name="from_date" placeholder="From" />
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -108,7 +74,7 @@
     〜
     <div class="input-group date datepicker" data-date-format="YYYY-MM-DD">
       <label class="sr-only" for="to_date">To</label>
-      <input type="text" class="form-control" id="to_date" placeholder="To" />
+      <input type="text" class="form-control" id="to_date" name="to_date" placeholder="To" />
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
