@@ -23,4 +23,12 @@ class Event < ActiveRecord::Base
     joins("LEFT OUTER JOIN cheki_events on events.id = cheki_events.event_id")
       .select("events.*, cheki_events.event_id")
   }
+
+  scope :search, ->(from_date, to_date, event_tags) {
+    conditions = nil
+    event_tags.each do |event_tag|
+      conditions = arel_table[:tag].matches(event_tag)
+    end
+    where(from_date: from_date..to_date).where(conditions)
+  }
 end
