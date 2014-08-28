@@ -25,25 +25,25 @@ class Event < ActiveRecord::Base
   }
 
   scope :search, ->(from_date, to_date, event_tags) {
-    conditions = nil
-
-    conditions = arel_table[:from_date].gteq(from_date) unless from_date.empty?
+    conditions = from_date.empty? ? nil : arel_table[:from_date].gteq(from_date)
 
     unless to_date.empty?
-      if conditions.nil?
-        conditions = arel_table[:from_date].lteq(to_date)
-      else
-        conditions = conditions.and(arel_table[:from_date].lteq(to_date))
-      end
+      conditions =
+        if conditions.nil?
+          arel_table[:from_date].lteq(to_date)
+        else
+          conditions.and(arel_table[:from_date].lteq(to_date))
+        end
     end
 
     unless event_tags.nil?
       event_tags.each do |event_tag|
-        if conditions.nil?
-          conditions = arel_table[:tag].matches("%" + event_tag + "%")
-        else
-          conditions = conditions.or(arel_table[:tag].matches("%" + event_tag + "%"))
-        end
+        conditions =
+          if conditions.nil?
+            arel_table[:tag].matches("%" + event_tag + "%")
+          else
+            conditions.or(arel_table[:tag].matches("%" + event_tag + "%"))
+          end
       end
     end
 
