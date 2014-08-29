@@ -3,6 +3,11 @@ class HomeController < ApplicationController
     return render :action => "before_login" unless logged_in?
 
     current_user
+
+    @new_events = Rails.cache.fetch(:new_events, expires_in: 5.minutes) do
+      Event.all.order(:created_at => :desc).limit(6)
+    end
+
     render :action => "index"
   end
 end

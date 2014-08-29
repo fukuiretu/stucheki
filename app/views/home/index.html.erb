@@ -6,7 +6,7 @@
   </ul>
 <hr>
 
-<h1><i class="fa fa-thumbs-o-up fa-lg fa-fw"></i>トレンド</h1>
+<!-- <h1><i class="fa fa-thumbs-o-up fa-lg fa-fw"></i>トレンド</h1>
 <div class="row">
   <div class="col-6 col-sm-6 col-lg-4">
     <h3>Fluentd Meetup #10</h3>
@@ -44,6 +44,20 @@
     <p><strong>[概要]</strong>ほにゃらほにゃら</p>
     <p><a class="btn btn-default" href="#" role="button">詳細 &raquo;</a></p>
   </div>
+</div>
+<hr> -->
+
+<h1><i class="fa fa-bell fa-lg fa-fw"></i>New</h1>
+<div class="row">
+  <% @new_events.each do |new_event| %>
+    <div class="col-6 col-sm-6 col-lg-4">
+      <h3><%= new_event.title %></h3>
+      <p><strong>[日時]</strong> <%= new_event.open_date %></p>
+      <p><strong>[概要]</strong> <%= new_event.description %></p>
+      <p><strong>[場所]</strong> <%= new_event.place %></p>
+      <p><a class="btn btn-default" href="<%= new_event.link %>" role="button">詳細 &raquo;</a></p>
+    </div>
+  <% end %>
 </div>
 <hr>
 
