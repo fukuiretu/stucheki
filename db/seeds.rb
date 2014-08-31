@@ -32,3 +32,16 @@ end
     content: content
   )
 end
+
+Information.create(
+  message: "2014-12-31 23:00〜メンテナンスを行います",
+  disable: 0
+)
+Information.create(
+  message: "testtest",
+  disable: 0
+)
+Information.create(
+  message: "test2",
+  disable: 1
+)

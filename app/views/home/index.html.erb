@@ -2,7 +2,9 @@
 
 <h1><i class="fa fa-bullhorn fa-lg fa-fw"></i>お知らせ</h1>
   <ul class="list-group">
-    <li class="list-group-item" style="color: red">※2014-12-31 23:00〜メンテナンスを行います</li>
+    <% @infos.each do |info| %>
+      <li class="list-group-item" style="color: red"><%= info.message %></li>
+    <% end %>
   </ul>
 <hr>
 
@@ -47,7 +49,7 @@
 </div>
 <hr> -->
 
-<h1><i class="fa fa-bell fa-lg fa-fw"></i>新着のイベント</h1>
+<h1><i class="fa fa-bell fa-lg fa-fw"></i>新着</h1>
 <div class="row">
   <% @new_events.each do |new_event| %>
     <div class="col-6 col-sm-6 col-lg-4">
