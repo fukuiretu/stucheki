@@ -47,7 +47,7 @@
 </div>
 <hr> -->
 
-<h1><i class="fa fa-bell fa-lg fa-fw"></i>New</h1>
+<h1><i class="fa fa-bell fa-lg fa-fw"></i>新着のイベント</h1>
 <div class="row">
   <% @new_events.each do |new_event| %>
     <div class="col-6 col-sm-6 col-lg-4">
@@ -55,7 +55,7 @@
       <p><strong>[日時]</strong> <%= new_event.open_date %></p>
       <p><strong>[概要]</strong> <%= new_event.description %></p>
       <p><strong>[場所]</strong> <%= new_event.place %></p>
-      <p><a class="btn btn-default" href="<%= new_event.link %>" role="button">詳細 &raquo;</a></p>
+      <p><a class="btn btn-default" target="_blank" href="<%= new_event.link %>" role="button">詳細 &raquo;</a></p>
     </div>
   <% end %>
 </div>
@@ -65,15 +65,12 @@
 <div class="form-group">
   <form class="form-inline" role="form" action="event_list">
     <label>タグ</label><br/>
-    <h4>
-    <span class="event_tag label label-default">Ruby</span>
-    <span class="event_tag label label-default">Java</span>
-    <span class="event_tag label label-default">Rails</span>
-    <span class="event_tag label label-default">PHP</span>
-    <span class="event_tag label label-default">AWS</span>
-    <span class="event_tag label label-default">Redis</span>
-    <span class="event_tag label label-default">Docker</span>
-    <span class="event_tag label label-default">Chef</span>
+      <% @tags.each_with_index do |tag, i| %>
+        <% if i % 10 == 0 %>
+          <%= tag("h4") %>
+        <% end %>
+        <%= tag.label_tag %>
+      <% end %>
     </h4>
     <div id="event_tag_field" style="display: none;"></div>
     <br>

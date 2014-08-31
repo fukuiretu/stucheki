@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rails g decorator user
+rails g decorator cheki_event
+rails g decorator event
+rails g decorator information
+rails g decorator tag

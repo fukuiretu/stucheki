@@ -19,10 +19,16 @@
   )
 end
 
-11.times do |time|
-  ChekiEvent.create(
-    user_id: 1,
-    event_id: time + 1,
-    cheki_status: 1
+# 11.times do |time|
+#   ChekiEvent.create(
+#     user_id: 1,
+#     event_id: time + 1,
+#     cheki_status: 1
+#   )
+# end
+
+%w(Ruby Rails Java AWS Docker GCE Fluentd PHP Redis Chef MySQL PostgreSQL Go Perl).each do |content|
+  Tag.create(
+    content: content
   )
 end

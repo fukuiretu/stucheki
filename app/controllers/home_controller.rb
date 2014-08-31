@@ -8,6 +8,10 @@ class HomeController < ApplicationController
       Event.all.order(:created_at => :desc).limit(6)
     end
 
+    @tags = Rails.cache.fetch(:tags, expires_in: 5.minutes) do
+      Tag.all.order(:content => :asc)
+    end
+
     render :action => "index"
   end
 end
