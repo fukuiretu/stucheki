@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     screen_name = auth['info']['nickname']
     screen_url = auth['info']['image']
 
-    User.find_or_create_by(provider: 'provider', uid: uid) do |user|
+    User.find_or_create_by(provider: provider, uid: uid) do |user|
       user.screen_name = screen_name
       user.screen_url = screen_url
     end
