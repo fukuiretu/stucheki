@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
+    print Settings.target_services
     if @current_user.nil?
       user_id = session[:user_id]
       @current_user = Rails.cache.fetch(:current_user, expires_in: 1.hour) do
