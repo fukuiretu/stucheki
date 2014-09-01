@@ -38,8 +38,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
-
 ##### custom division #####
 ## bootstrap関連
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -50,14 +48,15 @@ gem 'bootstrap-select-rails'
 # OAuth関連
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'settingslogic'
 
+# 外部ファイル(yaml)に設定値を持てる
+gem 'settingslogic'
 # ページャー関連
 gem 'kaminari'
-
+# viewとmodelの間の責務を受け持つ
 gem 'active_decorator'
-
-gem 'jquery-turbolinks'
+# cronを便利に利用する
+gem 'whenever', :require => false
 
 group :development, :staging do
   gem 'better_errors'

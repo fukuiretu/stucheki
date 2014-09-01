@@ -5,6 +5,7 @@ class Scheduler
 
       def self.hoge
         print "testtest"
+        exec( "echo 'hi' >> /tmp/whenevertest.log" )
       end
     end
   end
