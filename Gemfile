@@ -57,6 +57,8 @@ gem 'kaminari'
 gem 'active_decorator'
 # cronを便利に利用する
 gem 'whenever', :require => false
+# HTTPクライアント
+gem 'faraday'
 
 group :development, :staging do
   gem 'better_errors'
