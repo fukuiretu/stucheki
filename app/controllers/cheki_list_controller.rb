@@ -4,7 +4,7 @@ class ChekiListController < ApplicationController
 
     @cheki_events_count = temp_cheki_events.count
     @cheki_events = temp_cheki_events.order("created_at DESC").page(params[:page]).per(5)
-    @events = @cheki_events.includes(:event).map { |cheki_event| cheki_event.event }
+    @events = @cheki_events.includes(:event).map(&:event)
   end
 
   def update
