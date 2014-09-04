@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
   }
 
   scope :search, ->(from_date, to_date, event_tags) {
-    conditions = from_date.blank? ? nil : arel_table[:from_date].gteq(from_date)
+    conditions = arel_table[:from_date].gteq(from_date) unless from_date.blank?
 
     unless to_date.blank?
       conditions =
