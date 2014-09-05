@@ -19,6 +19,8 @@ class Event < ActiveRecord::Base
   has_many :cheki_events
   has_many :users, through: :cheki_events
 
+  enum origin_type: {atnd: 1, compass: 2, door_keeper: 3, zussar: 4}
+
   scope :merge_cheki_events, -> {
     joins("LEFT OUTER JOIN cheki_events on events.id = cheki_events.event_id")
       .select("events.*, cheki_events.event_id")
