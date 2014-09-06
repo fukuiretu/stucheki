@@ -1,6 +1,6 @@
 module EventDecorator
   def open_date
-    "#{from_date} - #{to_date}"
+    "#{started_at} - #{ended_at}"
   end
 
   def link_to_website

@@ -18,3 +18,4 @@ rails generate model information message:string disp_flag:integer
 rails generate model tag content:string
 
 rails g migration rename_disp_flag_to_information disable:integer
+rails g migration change_events

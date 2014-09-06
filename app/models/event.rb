@@ -2,24 +2,24 @@
 #
 # Table name: events
 #
-#  id          :integer          not null, primary key
-#  origin_type :integer
-#  title       :string(255)
-#  description :string(255)
-#  tag         :string(255)
-#  from_date   :datetime
-#  to_date     :datetime
-#  place       :string(255)
-#  link        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id               :integer          not null, primary key
+#  service_type     :integer
+#  service_event_id :integer
+#  title            :string(255)
+#  tag              :string(255)
+#  started_at       :datetime
+#  ended_at         :datetime
+#  place            :string(255)
+#  link             :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 class Event < ActiveRecord::Base
   has_many :cheki_events
   has_many :users, through: :cheki_events
 
-  enum origin_type: {atnd: 1, compass: 2, door_keeper: 3, zussar: 4}
+  enum service_type: { atnd: 1, compass: 2, door_keeper: 3, zussar: 4 }
 
   scope :merge_cheki_events, -> {
     joins("LEFT OUTER JOIN cheki_events on events.id = cheki_events.event_id")

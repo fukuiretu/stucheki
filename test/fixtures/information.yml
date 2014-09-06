@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  message    :string(255)
-#  disp_flag  :integer
+#  disable    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

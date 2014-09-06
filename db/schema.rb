@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831113857) do
+ActiveRecord::Schema.define(version: 20140906092358) do
 
   create_table "cheki_events", force: true do |t|
     t.integer  "user_id"
@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(version: 20140831113857) do
   end
 
   create_table "events", force: true do |t|
-    t.integer  "origin_type"
+    t.integer  "service_type"
     t.string   "title"
-    t.string   "description"
     t.string   "tag"
-    t.datetime "from_date"
-    t.datetime "to_date"
+    t.datetime "started_at"
+    t.datetime "ended_at"
     t.string   "place"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "service_event_id"
   end
 
   create_table "information", force: true do |t|
