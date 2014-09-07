@@ -8,12 +8,11 @@
 
 11.times do |time|
   Event.create(
-    origin_type: 1,
+    service_type: 1,
     title: "hoge_title #{time}",
-    description: "hoge_description #{time}",
     tag: 'ruby,rails,aws',
-    from_date: Time.now,
-    to_date: Time.now,
+    started_at: Time.now,
+    ended_at: Time.now,
     place: '神奈川県横浜市戸塚区',
     link: 'http://example.com'
   )
