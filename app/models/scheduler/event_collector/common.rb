@@ -1,8 +1,10 @@
 require "faraday"
+require "time"
 
 class Scheduler
   class EventCollector
     module Common
+      # common method
       def call_for_get(endpoint, url, params = {})
         @conn ||= Faraday.new(:url => endpoint) do |faraday|
           faraday.request  :url_encoded
@@ -20,7 +22,8 @@ class Scheduler
         response.body
       end
 
-      def collect
+      # imprements method
+      def execute()
         raise NotImplementedError
       end
     end

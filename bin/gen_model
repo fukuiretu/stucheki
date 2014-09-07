@@ -3,6 +3,7 @@
 rails destroy model user
 rails destroy model cheki_event
 rails destroy model event
+rails destroy model tmp_event
 rails destroy model information
 rails destroy model tag
 
@@ -11,7 +12,9 @@ rails generate model user provider:string uid:string screen_name:string screen_u
 # cheki_events
 rails generate model cheki_event user_id:integer event_id:integer cheki_status:integer
 # events
-rails generate model event origin_type:integer title:string description:string tag:string from_date:datetime to_date:datetime place:string link:string
+rails generate model events service_type:integer service_event_id:integer title:string tag:string started_at:datetime ended_at:datetime place:string link:string
+# tmp_events
+rails generate model tmp_event service_type:integer service_event_id:integer title:string tag:string started_at:datetime ended_at:datetime place:string link:string
 # informations
 rails generate model information message:string disp_flag:integer
 # tags
@@ -19,3 +22,4 @@ rails generate model tag content:string
 
 rails g migration rename_disp_flag_to_information disable:integer
 rails g migration change_events
+rails g migration add_service_id_to_events
