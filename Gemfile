@@ -49,9 +49,9 @@ gem 'bootstrap-select-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
-# 外部ファイル(yaml)に設定値を持てる
+# 外部ファイル(yaml)に定数値を持てる
 gem 'settingslogic'
-# ページャー関連
+# ページャー
 gem 'kaminari'
 # viewとmodelの間の責務を受け持つ
 gem 'active_decorator'
@@ -59,6 +59,8 @@ gem 'active_decorator'
 gem 'whenever', :require => false
 # HTTPクライアント
 gem 'faraday'
+# ActiveRecordにbulk import用の振る舞いを追加する
+gem 'activerecord-import'
 
 group :development, :staging do
   gem 'better_errors'
