@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <% if logged_in? %>
           <li><a href="/"><i class="fa fa-home fa-lg fa-fw"></i>ホーム</a></li>
-          <li><a href="/cheki_list"><i class="fa fa-meh-o fa-lg fa-fw"></i>ちぇきリスト</a></li>
+          <li><a href="/cheki_list"><i class="fa fa-meh-o fa-lg fa-fw"></i>ストックリスト</a></li>
           <li><a href="#"><img src="<%= @current_user.screen_url %>" class="img-responsive"></a></li>
           <li><a href="/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i>ログアウト</a></li>
         <% else %>

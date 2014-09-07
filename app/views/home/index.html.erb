@@ -50,16 +50,18 @@
 <hr> -->
 
 <h1><i class="fa fa-bell fa-lg fa-fw"></i>新着</h1>
-<div class="row">
-  <% @new_events.each do |new_event| %>
-    <div class="col-6 col-sm-6 col-lg-4">
-      <h3><%= new_event.title %></h3>
-      <p><strong>[日時]</strong> <%= new_event.open_date %></p>
-      <p><strong>[場所]</strong> <%= new_event.place %></p>
-      <p><a class="btn btn-default" target="_blank" href="<%= new_event.link %>" role="button">詳細 &raquo;</a></p>
-    </div>
-  <% end %>
-</div>
+<!-- <div class="row"> -->
+<% @new_events.each_with_index do |new_event, i| %>
+  <% if i == 0 || i % 3 == 0 %> <div class="row row-sm-height"> <% end %>
+      <div class="col-md-4">
+        <h3><%= new_event.excerpt_title %></h3>
+        <p><strong>[日時]</strong> <%= new_event.open_date %></p>
+        <p><strong>[場所]</strong> <%= new_event.place %></p>
+        <p><a class="btn btn-default" target="_blank" href="<%= new_event.link %>" role="button">詳細 &raquo;</a></p>
+      </div>
+  <% if i == 2 || i == 5 || i == (@new_events.count - 1) %> </div> <% end %>
+<% end %>
+<!-- </div> -->
 <hr>
 
 <h1><i class="fa fa-search fa-lg fa-fw"></i>イベントを検索</h1>
@@ -67,7 +69,7 @@
   <form class="form-inline" role="form" action="event_list">
     <label>タグ</label><br/>
       <% @tags.each_with_index do |tag, i| %>
-        <% if i % 10 == 0 %>
+        <% if i % 20 == 0 %>
           <%= tag("h4") %>
         <% end %>
         <%= tag.label_tag %>
