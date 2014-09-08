@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906104625) do
+ActiveRecord::Schema.define(version: 20140908222551) do
 
   create_table "cheki_events", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140906104625) do
 
   create_table "events", force: true do |t|
     t.integer  "service_type"
+    t.integer  "service_event_id"
     t.string   "title"
     t.string   "tag"
     t.datetime "started_at"
@@ -31,7 +32,14 @@ ActiveRecord::Schema.define(version: 20140906104625) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "evet_tag_maps", force: true do |t|
+    t.integer  "service_type"
     t.integer  "service_event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "information", force: true do |t|
