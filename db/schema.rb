@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908222551) do
+ActiveRecord::Schema.define(version: 20140909143755) do
 
   create_table "cheki_events", force: true do |t|
     t.integer  "user_id"
@@ -21,13 +21,21 @@ ActiveRecord::Schema.define(version: 20140908222551) do
     t.datetime "updated_at"
   end
 
+  create_table "event_tag_maps", force: true do |t|
+    t.integer  "service_type"
+    t.integer  "service_event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.integer  "service_type"
     t.integer  "service_event_id"
     t.string   "title"
-    t.string   "tag"
     t.datetime "started_at"
     t.datetime "ended_at"
+    t.string   "address"
     t.string   "place"
     t.string   "link"
     t.datetime "created_at"
@@ -55,15 +63,31 @@ ActiveRecord::Schema.define(version: 20140908222551) do
     t.datetime "updated_at"
   end
 
+  create_table "tmp_event_tag_maps", force: true do |t|
+    t.integer  "service_type"
+    t.integer  "service_event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tmp_events", force: true do |t|
     t.integer  "service_type"
     t.integer  "service_event_id"
     t.string   "title"
-    t.string   "tag"
     t.datetime "started_at"
     t.datetime "ended_at"
+    t.string   "address"
     t.string   "place"
     t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tmp_evet_tag_maps", force: true do |t|
+    t.integer  "service_type"
+    t.integer  "service_event_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,6 +7,7 @@
 # rails destroy model information
 # rails destroy model tag
 # rails destroy model evet_tag_maps
+# rails destroy model tmp_evet_tag_maps
 
 # users
 rails generate model user provider:string uid:string screen_name:string screen_url:string
@@ -21,8 +22,11 @@ rails generate model information message:string disp_flag:integer
 # tags
 rails generate model tag content:string
 # evet_tag_maps
-rails generate model evet_tag_map service_type:integer service_event_id:integer tag_id:integer
+rails generate model event_tag_map service_type:integer service_event_id:integer tag_id:integer
+# tmp_evet_tag_maps
+rails generate model tmp_event_tag_maps service_type:integer service_event_id:integer tag_id:integer
 
 rails g migration rename_disp_flag_to_information disable:integer
 rails g migration change_events
 rails g migration add_service_id_to_events
+rails g migration change_events_2
