@@ -1,5 +1,5 @@
-class EventCollector
-  class CompassEventCollector
+class EventCrawler
+  class CompassEventCrawler
     include Common
 
     def collect

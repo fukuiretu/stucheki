@@ -1,11 +1,9 @@
-class EventCollector
-  class AtndEventCollector
+class EventCrawler
+  class AtndEventCrawler
     include Common
 
     def execute
-      tags = Tag.all
-
-      tags.each do |tag|
+      Tag.all.each do |tag|
         yms.each do |ym|
           collect(tag.content, ym)
         end
@@ -36,7 +34,8 @@ class EventCollector
           )
           data = ActiveSupport::JSON.decode(res)
 
-          break if data["results_returned"] == 0
+          results_returned = data["results_returned"]
+          break if results_returned == 0
 
           # bulk insertする
           tmp_events = []
@@ -59,7 +58,7 @@ class EventCollector
 
           TmpEvent.import(tmp_events)
 
-          start = start + data["results_returned"]
+          start = start + results_returned
         end
       end
   end

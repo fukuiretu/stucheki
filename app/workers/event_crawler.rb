@@ -1,6 +1,7 @@
-require "event_collector/atnd_event_collector"
+require "event_crawler/common"
+require "event_crawler/atnd_event_crawler"
 
-class EventCollector
+class EventCrawler
   TRUNCATE_QUERY_TO_TMP_EVENTS = "TRUNCATE TABLE tmp_events"
 
   INSERT_QUERY_TO_EVENTS = "INSERT INTO events
@@ -36,7 +37,7 @@ class EventCollector
       a.ended_at = b.ended_at, a.place = b.place, a.link = b.link, a.updated_at = b.updated_at"
 
   def self.factory(service_name)
-    Object.const_get("Scheduler::EventCollector::#{service_name.classify}EventCollector").new()
+    Object.const_get("EventCollector::#{service_name.classify}EventCollector").new()
   end
 
   def self.merge_events

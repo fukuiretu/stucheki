@@ -1,7 +1,7 @@
 require "faraday"
 require "time"
 
-class EventCollector
+class EventCrawler
   module Common
     # common methods
     def call_for_get(endpoint, url, params = {})
