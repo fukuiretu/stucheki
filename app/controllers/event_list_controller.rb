@@ -2,7 +2,8 @@ class EventListController < ApplicationController
   def show
     temp_event = Event.search(params[:from_date], params[:to_date], params[:event_tag])
     @event_count = temp_event.count
-    @events = temp_event.merge_cheki_events.order(:created_at => :desc).page(params[:page]).per(5)
+    @events = temp_event.merge_cheki_events
+                .order(:created_at => :desc).page(params[:page]).per(Settings.pager_max_num.to_i)
   end
 
   def stock

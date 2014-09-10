@@ -12,6 +12,8 @@ defaults: &defaults
     compass: http://connpass.com/api/v1
     door_keeper: http://example.com
     zussar: http://example.com
+  api_req_wait_seconds: 3
+  pager_max_num: 5
 
 development:
   <<: *defaults

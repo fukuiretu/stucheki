@@ -19,7 +19,7 @@ class EventCrawler
       def collect(tag, ym)
         start = 1
         loop do
-          sleep(3) if start > 1
+          sleep(Settings.api_req_wait_seconds.to_i) if start > 1
 
           res = call_for_get(
             Settings.endpoint[:atnd],
