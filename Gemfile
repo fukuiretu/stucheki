@@ -51,6 +51,8 @@ gem 'omniauth-twitter'
 
 # 外部ファイル(yaml)に定数値を持てる
 gem 'settingslogic'
+# ENVに値を追加できる
+gem 'dotenv-rails'
 # ページャー
 gem 'kaminari'
 # viewとmodelの間の責務を受け持つ

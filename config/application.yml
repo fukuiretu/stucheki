@@ -1,0 +1,23 @@
+defaults: &defaults
+  twitter:
+    consumer_key: <%= ENV["TWITTER_CONSUMER_KEY"] %>
+    consumer_secret: <%= ENV["TWITTER_CONSUMER_SECRET"] %>
+  target_services:
+    a: atnd
+    b: compass
+    c: door_keeper
+    d: zussar
+  endpoint:
+    atnd: http://api.atnd.org
+    compass: http://connpass.com/api/v1
+    door_keeper: http://example.com
+    zussar: http://example.com
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

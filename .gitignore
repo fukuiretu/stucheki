@@ -15,6 +15,6 @@
 /log/*.log
 /tmp
 
-application.yml
+.env
 tags
 MEMO.md
