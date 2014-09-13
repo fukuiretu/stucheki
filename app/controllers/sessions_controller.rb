@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     Rails.cache.write(:current_user, user, expires_in: 1.hour)
     session[:user_id] = user.id
 
-    redirect_to root_path
+    redirect_to '/home/show'
   end
 
   def destroy

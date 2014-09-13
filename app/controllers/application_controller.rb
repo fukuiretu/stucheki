@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def check_login
-    return render action: 'before_login' unless logged_in?
+    return redirect_to root_path unless logged_in?
+    # return render :aciton '/show' unless logged_in?
 
     current_user
   end
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
     end
 
     def except_action?
-      self.controller_name == 'sessions'
-      # self.controller_name == 'sessions' || request.path_info == root_path
+      # self.controller_name == 'sessions'
+      self.controller_name == 'sessions' || request.path_info == root_path
     end
 end

@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+  end
+
+  def show
     @infos = Rails.cache.fetch(:infos, expires_in: 5.minutes) do
       Information.enable.order(id: :desc)
     end
