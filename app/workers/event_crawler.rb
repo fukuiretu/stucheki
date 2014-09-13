@@ -61,11 +61,11 @@ class EventCrawler
           b.id IS NULL
   EOS
 
-  def self.factory(service_name)
+  def self.create_instance(service_name)
     Object.const_get("EventCrawler::#{service_name.classify}EventCrawler").new
   end
 
-  def self.merge
+  def self.merge_tmp_to_origin
     ActiveRecord::Base.connection.begin_db_transaction
     ActiveRecord::Base.connection.execute(UPDATE_QUERY_TO_EVENTS)
     ActiveRecord::Base.connection.execute(INSERT_QUERY_TO_EVENTS)
