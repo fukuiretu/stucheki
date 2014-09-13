@@ -3,7 +3,9 @@ class EventListController < ApplicationController
     temp_event = Event.search(params[:from_date], params[:to_date], params[:event_tag])
     @event_count = temp_event.count
     @events = temp_event.merge_cheki_events
-                .order(:created_at => :desc).page(params[:page]).per(Settings.pager_max_num.to_i)
+                .order(created_at :desc)
+                .page(params[:page])
+                .per(Settings.pager_max_num.to_i)
   end
 
   def stock
@@ -13,7 +15,7 @@ class EventListController < ApplicationController
       cheki_status: ChekiEvent.cheki_statuses[:stock]
     )
 
-    flash[:success] = "ストックが完了しました。ちぇきリストから参照してください。"
+    flash[:success] = 'ストックが完了しました。ちぇきリストから参照してください'
     redirect_to '/event_list'
   end
 end

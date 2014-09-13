@@ -28,7 +28,7 @@ class EventCrawler
               keyword_or: tag.content,
               ym: ym,
               start: start,
-              count: 1,
+              count: 100,
               format: "json"
             }
           )

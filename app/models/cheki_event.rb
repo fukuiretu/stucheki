@@ -14,5 +14,5 @@ class ChekiEvent < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
-  enum cheki_status: {stock: 1, join: 2, cancel: 3}
+  enum cheki_status: { stock: 1, join: 2, cancel: 3 }
 end

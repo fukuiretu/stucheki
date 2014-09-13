@@ -8,16 +8,12 @@ module EventDecorator
   end
 
   def label_tags
-    tag.split(",").map{ |t|
-      content_tag(:span, t, :class => 'label label-default')
-    }.join(" ").html_safe
+    tag.split(',').map{ |t|
+      content_tag(:span, t, class: 'label label-default')
+    }.join(' ').html_safe
   end
 
   def excerpt_title
-    if title.length > 50
-      title.slice!(0, 50) + "..."
-    else
-      title
-    end
+    truncate(title, length: 50, omission: '...')
   end
 end

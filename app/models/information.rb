@@ -10,7 +10,7 @@
 #
 
 class Information < ActiveRecord::Base
-  scope :enable, ->{
-    where(:disable => 0)
+  scope :enable, -> {
+    where(disable: 0)
   }
 end
