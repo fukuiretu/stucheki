@@ -7,18 +7,11 @@ class ApplicationController < ActionController::Base
 
   def check_login
     return redirect_to root_path unless logged_in?
-    # return render :aciton '/show' unless logged_in?
 
     current_user
   end
 
   def current_user
-    # if @current_user.nil?
-    #   user_id = session[:user_id]
-    #   @current_user = Rails.cache.fetch(:current_user, expires_in: 1.hour) do
-    #     User.find(user_id)
-    #   end
-    # end
     @current_user ||= Rails.cache.fetch(:current_user, expires_in: 1.hour) do
       User.find(user_id)
     end
@@ -31,7 +24,6 @@ class ApplicationController < ActionController::Base
     end
 
     def except_action?
-      # self.controller_name == 'sessions'
       self.controller_name == 'sessions' || request.path_info == root_path
     end
 end
