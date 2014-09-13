@@ -5,7 +5,7 @@ class EventCrawler
   module Common
     # common methods
     def call_for_get(endpoint, url, params = {})
-      @conn ||= Faraday.new(:url => endpoint) do |faraday|
+      @conn ||= Faraday.new(url: endpoint) do |faraday|
         faraday.request  :url_encoded
         faraday.response :logger
         faraday.adapter  Faraday.default_adapter
