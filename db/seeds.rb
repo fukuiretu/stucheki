@@ -6,17 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-11.times do |time|
-  Event.create(
-    service_type: 1,
-    title: "hoge_title #{time}",
-    tag: 'ruby,rails,aws',
-    started_at: Time.now,
-    ended_at: Time.now,
-    place: '神奈川県横浜市戸塚区',
-    link: 'http://example.com'
-  )
-end
+# 11.times do |time|
+#   Event.create(
+#     service_type: 1,
+#     title: "hoge_title #{time}",
+#     tag: 'ruby,rails,aws',
+#     started_at: Time.now,
+#     ended_at: Time.now,
+#     place: '神奈川県横浜市戸塚区',
+#     link: 'http://example.com'
+#   )
+# end
 
 # 11.times do |time|
 #   ChekiEvent.create(
