@@ -28,12 +28,12 @@ class Event < ActiveRecord::Base
   end
 
   scope :gteq_started_at_or_all, ->(from_date) do
-    where(arel_table[:started_at].gteq(from_date)) unless from_date.blank?
+    return where(arel_table[:started_at].gteq(from_date)) unless from_date.blank?
     all
   end
 
   scope :lteq_started_at_or_all, ->(to_date) do
-    where(arel_table[:started_at].lteq(to_date)) if to_date.present?
+    return where(arel_table[:started_at].lteq(to_date)) if to_date.present?
     all
   end
 
