@@ -1,7 +1,7 @@
 <% provide(:title, 'SearchResult') %>
 
 <div class="page-header">
-  <h3>検索結果 <small><%= @event_count %>件</small></h3>
+  <h3>検索結果 <small><%= @events.total_count %>件</small></h3>
 </div>
 
 <section id="events">
@@ -11,16 +11,17 @@
       <div class="panel-heading">
         <h4>
           <%= event.title %>
-          <% if event.event_id.nil? %>
+          <% if event.cheki_events.empty? %>
             <a class="btn" name="stock_link" href="#">
               <i class="fa fa-plus-circle fa-lg fa-fw"></i>
             </a>
           <% else %>
-            <%= content_tag(:span, "ちぇきリスト済", :class => "label label-success") %>
+            <%= content_tag(:span, "ストック済", class: "label label-success") %>
           <% end %>
         </h4>
       </div>
       <div class="panel-body">
+        <!-- <p>[タグ]  -->
         <p>[タグ] <%= event.label_tags %></p>
         <p>[日時] <%= event.open_date %></p>
         <p>[場所] <%= event.place %></p>
@@ -32,7 +33,7 @@
 </section>
 
 <div class="text-center">
-  <%= paginate @events%>
+  <%= paginate @events %>
 </div>
 
 <!-- Modal -->

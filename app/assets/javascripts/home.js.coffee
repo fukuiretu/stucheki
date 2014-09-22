@@ -6,6 +6,7 @@ $ ->
   $('.datepicker').datetimepicker()
 
   $("span.event_tag").click ->
+    tag_id = $(this).attr('id').split("_").pop()
     if ($(this).hasClass("label-default"))
       $(this).removeClass("label-default")
       $(this).addClass("label-danger")
@@ -13,8 +14,8 @@ $ ->
       $('<input>').attr({
         type: 'hidden',
         name: 'event_tag[]',
-        value: $(this).text()
-      }).appendTo('#event_tag_field')
+        value: tag_id
+      } ).appendTo('#event_tag_field')
 
     else
       $(this).removeClass("label-danger")
@@ -22,6 +23,6 @@ $ ->
 
       $self = $(this)
       $("input[name='event_tag[]']").each ->
-        if (@.value == $self.text())
+        if (@.value == tag_id)
           $(this).remove()
           return

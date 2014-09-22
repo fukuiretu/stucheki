@@ -1,11 +1,14 @@
 class EventListController < ApplicationController
   def show
-    temp_event = Event.search(params[:from_date], params[:to_date], params[:event_tag])
-    @event_count = temp_event.count
-    @events = temp_event.merge_cheki_events
-                .order(created_at :desc)
-                .page(params[:page])
-                .per(Settings.pager_max_num.to_i)
+    @events = Event.joins(:event_tag_maps)
+    .includes(:cheki_events).references(:cheki_events)
+    .gteq_started_at_or_all(params[:from_date])
+    .lteq_started_at_or_all(params[:to_date])
+    .merge(EventTagMap.where_tags_or_all(params[:event_tag]))
+    .group(:service_type, :service_event_id)
+    .order(created_at: :desc)
+    .page(params[:page])
+    .per(Settings.pager_max_num.to_i)
   end
 
   def stock

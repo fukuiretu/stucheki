@@ -23,7 +23,8 @@ class Event < ActiveRecord::Base
   enum service_type: { atnd: 1, compass: 2, door_keeper: 3, zussar: 4 }
 
   scope :join_cheki_events, -> do
-    joins('LEFT OUTER JOIN cheki_events on events.id = cheki_events.event_id')
+    includes(:cheki_events).references(:cheki_events)
+    # joins('LEFT OUTER JOIN cheki_events on events.id = cheki_events.event_id')
     # .select("events.*, cheki_events.event_id")
   end
 
