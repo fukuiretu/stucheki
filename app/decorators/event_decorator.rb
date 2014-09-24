@@ -4,7 +4,7 @@ module EventDecorator
   end
 
   def link_to_website
-    link_to link, link
+    link_to(link, link, target: :blank)
   end
 
   def label_tags
@@ -16,5 +16,10 @@ module EventDecorator
 
   def excerpt_title
     truncate(title, length: 50, omission: '...')
+  end
+
+  def str_address
+    return 'none' if address.nil? || address.strip.blank?
+    address
   end
 end
