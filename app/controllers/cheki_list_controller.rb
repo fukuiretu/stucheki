@@ -1,9 +1,10 @@
 class ChekiListController < ApplicationController
   def show
-    temp_cheki_events = ChekiEvent.where(user_id: @current_user.id)
+    @cheki_events = ChekiEvent.where(user_id: @current_user.id)
+    .order(created_at: :desc)
+    .page(params[:page])
+    .per(Settings.pager_max_num.to_i)
 
-    @cheki_events_count = temp_cheki_events.count
-    @cheki_events = temp_cheki_events.order(created_at: desc).page(params[:page]).per(5)
     @events = @cheki_events.includes(:event).map(&:event)
   end
 
