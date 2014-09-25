@@ -1,4 +1,6 @@
 module EventDecorator
+  SERVICE_TYPE_NAMES = { 1 => 'ATND', 2 => 'Compass', 3 => 'DoorKeeper', 4 => 'Zussar' }
+
   def open_date
     "#{started_at} - #{ended_at}"
   end
@@ -19,7 +21,11 @@ module EventDecorator
   end
 
   def str_address
-    return 'none' if address.nil? || address.strip.blank?
+    return '未設定' if address.nil? || address.strip.blank?
     address
+  end
+
+  def event_name
+    SERVICE_TYPE_NAMES[Event.service_types[service_type]]
   end
 end
