@@ -2,7 +2,9 @@ module EventDecorator
   SERVICE_TYPE_NAMES = { 1 => 'ATND', 2 => 'Compass', 3 => 'DoorKeeper', 4 => 'Zussar' }
 
   def open_date
-    "#{started_at} - #{ended_at}"
+    from = started_at.nil? ? '' : Time.zone.parse(started_at.to_s).strftime('%Y-%m-%d %H:%M')
+    to = ended_at.nil? ? '' : Time.zone.parse(ended_at.to_s).strftime('%Y-%m-%d %H:%M')
+    "#{from} - #{to}"
   end
 
   def link_to_website

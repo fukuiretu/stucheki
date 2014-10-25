@@ -21,20 +21,18 @@ class EventCrawler
   SELECT
     a.service_type,
     a.service_event_id,
-    MAX(a.title),
-    MAX(a.started_at),
-    MAX(a.ended_at),
-    MAX(a.address),
-    MAX(a.place),
-    MAX(a.link)
+    a.title,
+    a.started_at,
+    a.ended_at,
+    a.address,
+    a.place,
+    a.link
   FROM
   tmp_events a
   LEFT OUTER JOIN events b ON a.service_type = b.service_type
   AND a.service_event_id = b.service_event_id
   WHERE
   b.id IS NULL
-  GROUP BY
-    a.service_type, a.service_event_id
   EOS
 
   UPDATE_QUERY_TO_EVENTS = <<-EOS

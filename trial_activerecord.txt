@@ -1,0 +1,22 @@
+Event.gteq_started_at_or_all('2014-09-20 00:00:00').lteq_started_at_or_all('2014-09-27 00:00:00').includes(:cheki_events).joins(:event_tag_maps).where(EventTagMap.arel_table[:tag_id].in([1,2,3])).group(:service_type, :service_event_id).order(created_at: :desc).to_sql
+Event.gteq_started_at_or_all('2014-09-20 00:00:00').lteq_started_at_or_all('2014-09-27 00:00:00').includes(:cheki_events).joins(:event_tag_maps => :tag).where(EventTagMap.arel_table[:tag_id].in([1,2,3])).group(:service_type, :service_event_id).order(created_at: :desc).to_sql
+
+Event.joins(:event_tag_maps => :tag).includes(:cheki_events).references(:cheki_events)
+
+EventTagMap.select('events.*, tags.*').joins(:tag, :event).merge(Event.join_cheki_events).where(tag_id: [1,2,3]).merge(Event.gteq_started_at_or_all('2014-09-20 00:00:00')).merge(Event.lteq_started_at_or_all('2014-09-27 00:00:00')).group(Event.arel_table[:service_type], Event.arel_table[:service_event_id]).order(Event.arel_table[:created_at].desc)
+EventTagMap.select('events.*, tags.*').joins(:tag, :event, 'LEFT OUTER JOIN cheki_events ON events.id = cheki_events.event_id').where(tag_id: [1,2,3]).merge(Event.gteq_started_at_or_all('2014-09-20 00:00:00')).merge(Event.lteq_started_at_or_all('2014-09-27 00:00:00')).group(Event.arel_table[:service_type], Event.arel_table[:service_event_id]).order(Event.arel_table[:created_at].desc)
+EventTagMap.references(:cheki_events)
+Event.join_cheki_events
+
+EventTagMap.select('events.*, tags.*')
+.joins(:tag, :event, 'LEFT OUTER JOIN cheki_events ON events.id = cheki_events.event_id')
+.where(tag_id: [1,2,3])
+.merge(Event.gteq_started_at_or_all('2014-09-20 00:00:00'))
+.merge(Event.lteq_started_at_or_all('2014-09-27 00:00:00'))
+.group(Event.arel_table[:service_type], Event.arel_table[:service_event_id])
+.order(Event.arel_table[:created_at].desc)
+
+Event.select('tags.content')
+.joins(:event_tag_maps => :tag)
+.includes(:cheki_events).references(:cheki_events)
+.group(:service_type, :service_event_id)
