@@ -2,7 +2,7 @@ class EventCrawler
   class CompassEventCrawler
     include Common
 
-    def collect
+    def start
       print "collect called."
 
       # TODO 条件
