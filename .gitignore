@@ -18,3 +18,5 @@
 .env
 tags
 MEMO.md
+
+/vendor/bundle/
