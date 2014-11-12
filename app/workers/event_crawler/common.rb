@@ -21,8 +21,13 @@ class EventCrawler
       response.body
     end
 
+    def yms
+      # TODO
+      ["201409", "201410"]
+    end
+
     # imprements methods
-    def execute
+    def start
       raise NotImplementedError
     end
   end

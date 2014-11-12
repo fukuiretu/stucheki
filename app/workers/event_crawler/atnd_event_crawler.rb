@@ -2,7 +2,7 @@ class EventCrawler
   class AtndEventCrawler
     include Common
 
-    def execute
+    def start
       Tag.all.each do |tag|
         yms.each do |ym|
           collect(tag, ym)
@@ -11,11 +11,6 @@ class EventCrawler
     end
 
     private
-      def yms
-        # TODO
-        ["201409", "201410"]
-      end
-
       def collect(tag, ym)
         start = 1
         loop do

@@ -21,18 +21,20 @@ class EventCrawler
   SELECT
     a.service_type,
     a.service_event_id,
-    a.title,
-    a.started_at,
-    a.ended_at,
-    a.address,
-    a.place,
-    a.link
+    MAX(a.title),
+    MAX(a.started_at),
+    MAX(a.ended_at),
+    MAX(a.address),
+    MAX(a.place),
+    MAX(a.link)
   FROM
   tmp_events a
   LEFT OUTER JOIN events b ON a.service_type = b.service_type
   AND a.service_event_id = b.service_event_id
   WHERE
   b.id IS NULL
+  GROUP BY
+  a.service_type, a.service_event_id
   EOS
 
   UPDATE_QUERY_TO_EVENTS = <<-EOS
@@ -51,7 +53,7 @@ class EventCrawler
     tag_id
   )
   SELECT
-    b.id,
+    MAX(b.id),
     a.tag_id
   FROM
   tmp_event_tag_maps a
@@ -60,6 +62,8 @@ class EventCrawler
   LEFT OUTER JOIN event_tag_maps c ON b.id = c.event_id
   WHERE
   c.id IS NULL
+  GROUP BY
+  a.service_type, a.service_event_id, a.tag_id
   EOS
 
   def self.create_instance(service_name)
