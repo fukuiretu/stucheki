@@ -5,7 +5,7 @@ working_directory app_dir
 listen "#{app_dir}/tmp/unicorn.stucheki.sock"
 pid "#{app_dir}/tmp/pids/unicorn.pid"
 stdout_path "#{app_dir}/log/unicorn.log"
-stderr_path "#{app_dir}/log/unicorn_err.log"
+stderr_path "#{app_dir}/log/unicorn.log"
 
 cpu_num = `cat /proc/cpuinfo | grep processor`.split("\n").size
 
