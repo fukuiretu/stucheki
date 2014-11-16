@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 
+  password:
   host: localhost
 
 development:
@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: stucheki_production
-  username: stucheki
+  username: <%= ENV['DB_USER'] %>
   password: <%= ENV['STUCHEKI_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
