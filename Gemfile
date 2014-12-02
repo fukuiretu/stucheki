@@ -64,6 +64,8 @@ gem 'faraday'
 # ActiveRecordにbulk import用の振る舞いを追加する
 gem 'activerecord-import'
 
+gem "non-stupid-digest-assets"
+
 group :development, :staging do
   gem 'better_errors'
   gem 'binding_of_caller'
