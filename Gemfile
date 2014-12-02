@@ -67,8 +67,6 @@ gem 'activerecord-import'
 
 gem "non-stupid-digest-assets"
 
-
-
 group :development, :staging do
   gem 'better_errors'
   gem 'binding_of_caller'
